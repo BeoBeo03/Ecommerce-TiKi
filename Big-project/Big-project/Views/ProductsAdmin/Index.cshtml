@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Big_project.Models.Products>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<link href="~/asset/admin.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<p style="margin-top:14px;font-size:2rem;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+
+<div style="margin-top: 20px;" class="main-content">
+    <div class="header-admin">
+        <h4>
+            <div style="font-size: 3rem;" class="header-title">
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Quản lý sản phẩm
+            </div>
+        </h4>
+        <div style="font-size:2rem;" class="user-wrapper">
+            <img src="~/img/image/admin.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>User Admin</h4>
+                <small>Chào admin trở lại </small>
+            </div>
+        </div>
+    </div>
+</div>
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>đơn vị</td>
+            <td>Giá</td>
+            <td>Ảnh sản phẩm</td>
+            <td>Star</td>
+            <td>Cấu hình</td>
+            <td>Giảm giá</td>
+            <td>Ảnh sản phẩm 1</td>
+            <td>Ảnh sản phẩm 2</td>
+            <td>Ảnh sản phẩm 3</td>
+            <td>Ảnh sản phẩm 4</td>
+            <td>Screen</td>
+            <td>HDH</td>
+            <td>CameraAfter</td>
+            <td>CameraBefore</td>
+            <td>Chip</td>
+            <td>Ram</td>
+            <td>Rom</td>
+            <td>Sim</td>
+            <td>Pin</td>
+            <td>Sale</td>
+            <td>Feedback</td>
+            <td>Sản phẩm mô tả</td>
+            <td>Số lượng bán</td>
+            <td>Danh Mục</td>
+            <td>Setting</td>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td> @Html.DisplayFor(modelItem => item.TenIP)</td>
+                <td>@Html.DisplayFor(modelItem => item.Donvitinh)</td>
+                <td> @Html.DisplayFor(modelItem => item.Dongiabd)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HinhSP)
+                    <img src="~/img/sanpham/@item.HinhSP" width="100" height="100"/>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.star)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cauhinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dongia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa1)
+                    <img src="~/img/sanpham/@item.Hinhminhhoa1" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa2)
+                    <img src="~/img/sanpham/@item.Hinhminhhoa2" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa3)
+                    <img src="~/img/sanpham/@item.Hinhminhhoa3" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hinhminhhoa4)
+                    <img src="~/img/sanpham/@item.Hinhminhhoa4" width="100" height="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Screen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HDH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CameraAfter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CameraBefore)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feedback)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imgdescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soluongban)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category1)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IDSP }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IDSP }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IDSP })
+                </td>
+
+
+
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+

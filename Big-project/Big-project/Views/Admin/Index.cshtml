@@ -1,0 +1,75 @@
+﻿
+@model IEnumerable<Big_project.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<link href="~/asset/admin.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+<div style="margin-top: 20px;" class="main-content">
+    <div class="header-admin">
+        <h4>
+            <div style="font-size: 3rem;" class="header-title">
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Thông tin khách hàng
+            </div>
+        </h4>
+        <div style="font-size:2rem;" class="user-wrapper">
+            <img src="~/img/image/admin.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>User Admin</h4>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
+<marquee style="font-size:1.4rem;color:#0094ff;"> Chào mừng admin đã quay trở lại !! </marquee>
+<table id="myTable" class="display">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Họ tên</td>
+            <td>Địa chỉ</td>
+            <td>Số điện thoại</td>
+            <td>Email</td>
+            <td>Giới tính</td>
+            <td>Hành động</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.IDCus</td>
+                <td>@item.NameCus</td>
+                <td>@item.AdressCus</td>
+                <td>@item.PhoneCus</td>
+                <td>@item.EmailCus</td>
+                <td>@item.SexCus</td>
+                <td style="text-align: center;"><button style="border:none;font-size:2.5rem;"><i class="fa-sharp fa-solid fa-trash"></i></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>

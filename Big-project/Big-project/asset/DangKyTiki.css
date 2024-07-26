@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    max-width:100%;
+    margin: 0 auto;
+}
+.container-fluid {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+section{
+    display: block;
+}
+.leftSide-Heading h1 {
+    font-size: 3rem;
+}
+.leftSide-Caution p {
+    font-size: 2rem;
+}
+.BaG{
+    max-width: 1216px;
+    margin: 0 auto;
+   
+    display: flow-root;
+    margin-top: 32px;
+}
+.BaGInside{
+    display: flex;
+    height: 100%;
+}
+.LeS{
+    margin-right: -40px;
+    position: relative;
+    z-index: 20;
+}
+.LeS-Form{
+    display: block;
+    flex: 0 0 50%;
+    max-width: 50%;
+    position: relative;
+    max-height: 100%;
+}
+.LeS-hd{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:100;
+}
+.LeS-Caut{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(142, 142, 142);
+    
+}
+.LeS-Img{
+    margin-top: 50px;
+    position: relative;
+    padding-top: calc(66.6667%);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.LeS-Img > img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.RiS{
+    padding-left: 100px;
+    padding-bottom: 56px;
+    background-color: rgb(233, 233, 233);
+    height: auto;
+}
+.RiS-hd2{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.RiS-Baby{
+    width: 75%;
+    height: auto;
+    margin: left;
+}
+form{
+    display: block;
+    margin-top: 0cm;
+}
+.RiS-La{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 4px;
+}
+.RiS-IP-Em{
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 0px 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 200ms ease 0s;
+}
+.RiS-IP-Na{
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 0px 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 200ms ease 0s;
+}
+.RiS-IP-Ctry{
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 0px 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 200ms ease 0s;
+}
+.RiS-IP-Num{
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 0px 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 200ms ease 0s;
+}
+.RiS-IP-Pass{
+    height: 40px;
+    background: rgb(255, 255, 255);
+    border-radius: 2px;
+    padding: 0px 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    transition: all 200ms ease 0s;
+}
+.RiS-Sub{
+    margin-top: 24px;
+}
+.submit{
+    width: 100%;
+    color: #fff;
+    border-color: #1890ff;
+    background: #1890ff;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+    height: 40px;
+    padding: 6.4px 15px;
+    font-size: 16px;
+    border-radius: 2px;
+}
+.Input{
+    flex: 1 1 0%;
+    width: 0px;
+    height: 90%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 24px;
+}
+.sc-tip{
+    margin-left: 4px;
+}
+.label-Image{
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    width: 14px;
+}
+.decription{
+    color: rgb(89, 89, 89);
+    font-weight: normal;
+}

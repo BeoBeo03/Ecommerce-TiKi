@@ -1,0 +1,246 @@
+﻿@using Big_project.Models
+@{
+    Customer kh = (Customer)Session["TaiKhoan"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="icon" href="https://salt.tikicdn.com/media/upload/2018/12/03/0054c1410e38f1b9f3609c244974dd9c.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <title>@ViewBag.Điện thoại Smartphone chính hãng, giá tốt tháng 10,2022 | Tiki</title>
+    <link rel="stylesheet" href="~/asset/main.css">
+    <link href="~/asset/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/asset/sidebar.css">
+    <link rel="stylesheet" href="~/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/owl.theme.default.min.css">
+
+
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="grid">
+                <div class="header__with-search">
+                    <a href="/Home/index" class="header__logo">
+                        <img src="~/img/logo-tiki.png" alt="" class="header__logo-img">
+                    </a>
+
+                    <div class="header__search">
+                        <div class="header__search-input-wrap">
+                            <input  onkeypress="return runScript(event)" type="text" id="searchBox" class="header__search-input" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn...">
+                        </div>
+                        <div  id="btnSearch" class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            <button style="font-size: 1.3rem; color: #fff; font-weight: 600; background-color: #0d5cb6;border:none;" >Tìm kiếm</button>
+                        </div>
+                    </div>
+
+
+
+
+                    @if (kh != null)
+                    {
+                        <div class="header__search-account">
+                            <img src="~/img/avatar.png" alt="" class="header__search-avatar">
+                            <span class="account" style="color: white;margin-top:12px;margin-left:10px; font-weight: bold">
+                                @kh.NameCus
+
+
+                            </span>
+                            <a class="out" href="@Url.Action("LogOut","Users" )">
+                                <i style="font-size: 1.7rem; color: #f00; margin-top: 15px; margin-left: 6px;" class="fa-solid fa-right-from-bracket"></i>
+                            </a>
+
+
+
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="header__search-account">
+                            <img src="~/img/avatar.png" alt="" class="header__search-avatar">
+                            <div class="header__account-btn">
+                                <div class="header__login-logout">
+                                    <div class="header__account-login">
+                                        <a href="@Url.Action("Login","Users")">Đăng nhập</a>
+                                    </div>
+                                    <span style="font-size: 1.2rem;color:#fff;padding:0 3px;">/</span>
+                                    <div class="header__account-register">
+                                        <a href="@Url.Action("Register","Users")">Đăng kí</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <button id="cart" class="header__cart">
+                        <div class="header__cart-wrap">
+                            @Html.Action("CartPartial", "Cart")
+
+                        </div>
+
+                    </button>
+                    <div id="myModal" class="modal-cart open">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Giỏ Hàng</h5>
+                                <span class="close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="cart-row">
+                                    <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                                    <span class="cart-price cart-header cart-column">Giá</span>
+                                    <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                                </div>
+                                <div class="cart-items">
+                                    <!-- <div class="cart-row">
+                                        <div class="cart-item cart-column">
+                                            <img class="cart-item-fdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgimage" src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000" width="100" height="100">
+                                            <span class="cart-item-title">Mũi Hàn 500</span>
+                                        </div>
+                                        <span class="cart-price cart-column">25000đ</span>
+                                        <div class="cart-quantity cart-column">
+                                            <input class="cart-quantity-input" type="number" value="1">
+                                            <button class="btn btn-danger" type="button">Xóa</button>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="cart-total">
+                                    <strong class="cart-total-title">Tổng Cộng:</strong>
+                                    <span class="cart-total-price">0VNĐ</span>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary close-footer">Đóng</button>
+                                <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="header__with-solgan">
+                    <div class="header__solgan">
+                        <img src="~/img/solgan.png" alt="" class="header__solgan-img">
+                    </div>
+                    <ul class="header__solgan-list">
+                        <li class="header__solgan-items">
+                            <a href="@Url.Action("Iphone14","HomeController")">Iphone 14</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="/Home/IP14PROMAX">Iphone 14 pro max</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="/Home/IP13">Iphone 13</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="/Home/IP13PROMAX">Iphone 13 pro max</a>
+                        </li>
+
+                    </ul>
+                    <div class="header__solgan-end">
+                        <a href="/Home/BanHangCungTiki">
+                            <i class="header__store fa-solid fa-store"></i>
+                            <span>Bán hàng cùng Tiki</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+
+            @RenderBody()
+        </div>
+        <div class="footer">
+            <div class="modal__content-footer">
+                <div class="modal__content-body">
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">CHĂM SÓC KHÁCH HÀNG</li>
+                        <li class="modal__content-btn"> <a href="/Home/New">NEWS</a></li>
+                        <li class="modal__content-btn"> <a href="/Home/HuongDanDatHang">Hướng dẫn mua hàng</a></li>
+
+                        <li class="modal__content-btn"> <a href="">Thanh toán</a></li>
+                        <li class="modal__content-btn"> <a href="">Vận chuyển</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">Về Tiki</li>
+                        <li class="modal__content-btn"> <a href="/Home/GioiThieuTiki">Giới Thiệu Về Tiki Việt Nam</a></li>
+                        <li class="modal__content-btn"> <a href="/Home/GTTikiXu">Giới thiệu về tiki xu</a></li>
+
+                        <li class="modal__content-btn"> <a href="">Flash Sales</a></li>
+
+                        <li class="modal__content-btn"><i class=" fa-solid fa-mobile-screen"></i>HotLine: <a href="tel:0902718029"> 0902718029</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">THEO DÕI CHÚNG TÔI TRÊN</li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-facebook"></i><a href="">Facebook</a></li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-instagram"></i><a href="">Instagram</a></li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-linkedin"></i><a href="">Linkedin</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</li>
+                        <div class="modal__content-app">
+                            <img src="~/img/app.png" alt="App Store" class="header__download-link">
+                        </div>
+                        <div class="modal__content-app">
+                            <img src="~/img/gg-play.png" alt="App Store" class="header__download-link">
+                        </div>
+                        <div class="header__qr-link">
+                            <img src="~/img/app store.png" alt="App Store" class="header__download-link">
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <button class="app__speak">
+            <img src="~/img/chat-vector-icon-png_260846.jpg" alt="">
+        </button>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="~/owl.carousel.min.js"></script>
+    <script src="~/js/jvs.js"></script>
+    <script>
+
+        let btnSearch = document.getElementById("btnSearch");
+        let searchBox = document.getElementById("searchBox");
+
+        btnSearch.addEventListener('click', () => {
+            var keyword = searchBox.value;
+       
+
+            if (keyword.trim() != "") {
+                window.location = ` /Home/index?SearchString=${keyword}`
+            }
+        })
+
+        function runScript(e) {
+            //See notes about 'which' and 'key'
+            if (e.keyCode == 13) {
+                var keyword = searchBox.value;
+
+
+                if (keyword.trim() != "") {
+                    window.location = ` /Home/index?SearchString=${keyword}`
+                }
+            }
+        }
+       
+    </script>
+
+    <!-- JVS -->
+
+</body>
+
+
+
+</html>

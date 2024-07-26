@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+<link href="~/asset/admin.css" rel="stylesheet" />
+<div style="margin-top: 20px;" class="main-content">
+    <div class="header-admin">
+        <h4>
+            <div style="font-size: 3rem;" class="header-title">
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Thống kê báo cáo
+            </div>
+        </h4>
+        <div style="font-size:2rem;" class="user-wrapper">
+            <img src="~/img/image/admin.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>User Admin</h4>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="main-admin">
+    <div class="cards">
+        <div class="card-single1 ">
+            <div>
+                <h4>@ViewBag.CountUser</h4>
+                <span>Khách hàng</span>
+            </div>
+            <div>
+                <span class="">
+                    <i style="font-size:2.5rem;" class="fa-solid fa-users"></i>
+                </span>
+            </div>
+        </div>
+        <div class="card-single2">
+            <div>
+                <h4>@ViewBag.CountProduct</h4>
+                <span>Tổng số lượng sản phẩm</span>
+            </div>
+            <div>
+                <span class="">
+                    <i style="font-size:2.5rem;" class="fa-solid fa-layer-group"></i>
+                </span>
+            </div>
+        </div>
+        <div class="card-single3">
+            <div>
+                <h4>@ViewBag.CountOrder</h4>
+                <span>Đơn đặt hàng</span>
+            </div>
+            <div>
+                <span class="">
+                    <i style="font-size:2.5rem;" class="fa-solid fa-cart-flatbed-suitcase"></i>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="recent-gird ">
+    <div class="projects">
+        <div class="card">
+            <div class="card-header">
+
+                <div  class=""><i style="font-size:2.5rem;" class="fa-solid fa-chart-simple"></i></div>
+                <div style="font-style: italic; font-size: 2rem; "> Danh sách đơn hàng</div>
+
+                <button>See all<span class="las la-arrow-right"></span></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table" width="100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tên khách hàng</th>
+                                <th>Giới tính</th>
+                                <th>Trạng thái</th>
+                                <th>Số lượng sản phẩm</th>
+                                <th></th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.OrderList)
+                            {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.Customer.NameCus</td>
+                                <td>@item.Customer.SexCus</td>
+                                @if (item.HTGiaohang == 0)
+                                {
+                                    <td style="color:red;">Chưa xác nhận</td>
+                                }
+                                else if (item.HTGiaohang == 1)
+                                {
+                                    <td style="color:orange;">Đã hủy </td>
+
+                                }
+                                else
+                                {
+                                    <td style="color:forestgreen;">Đã xác nhận</td>
+
+
+                                }
+                                <td>Xem chi tiết</td>
+
+                                
+
+                            </tr>
+                            }
+                           
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="report">
+        <div class="card">
+            <div class="card-header">
+
+                <div style="font-size:2.5rem;" class=""><i class="fa-solid fa-bell"></i></div>
+                <div style="font-style:italic;font-size:2rem;">Báo cáo hằng ngày</div>
+
+                <button>See all<span class="las la-arrow-right"></span></button>
+            </div>
+            <table class="table table-hover">
+                <tr>
+                    <td>
+                        <div class="las la-comment"></div>Đánh giá sản phẩm mới:&emsp; 0 đánh giá
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <div class="las la-check-circle"></div>Đơn đặt hàng hôm nay:&emsp;3 đơn hàng
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="las la-user"></div>User đã đăng ký:&emsp;4 người đăng ký
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="las la-file-invoice"></div>Đơn hàng đã thanh toán:&emsp;10 đơn đã thanh
+                        toán
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="las la-inbox"></div>Đơn hàng đang chờ thanh toán:&emsp;4 đơn chưa thanh
+                        toán
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

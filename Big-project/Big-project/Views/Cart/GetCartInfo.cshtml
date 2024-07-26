@@ -1,0 +1,94 @@
+﻿@using Big_project.Models
+@model List<CartItem>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+@{
+    ViewBag.Title = "GetCartInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");}
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    }
+    
+    
+</style>
+<div style=" padding-right: 15px; box-sizing: border-box; padding-left: 15px; margin-right: auto; margin-left: 200px; " class="container">
+    <h2 class="container-text" style="font: Comic Sans MS cursive; margin-top: 20px; font-size: 3rem;  height: 100px; padding-top: 21px; ">
+        Giỏ hàng của bạn
+        <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+    </h2>
+    <div style="display: flex; border-top: 1px solid #e4d9d9; border-bottom: 1px solid #e4d9d9; " class="row">
+        <div style="border:none;" class="col-lg-8 cart-column ">
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0 20px;">
+                <tbody>
+                    <tr style=" border: 1px solid rgb(206, 206, 206); border-radius: 10%; }">
+                        <th style=" padding: 10px 10px 10px 0; font-weight: unset;">Mã số</th>
+                        <th style="text-align: center;padding: 10px; font-weight: unset;">Sản phẩm</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Đơn giá</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Số lượng</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Thành tiền</th>
+                    </tr>
+
+                    @foreach (var product in Model)
+                    {
+                <tr class="cart-item">
+                    @using (Html.BeginForm("CapNhatMatHang", "Cart", new { MaSP = product.IDSP }))
+                    {
+                        <td>
+                            <div style="margin-right: 40px; text-align: center; color: rgb(1, 70, 134); ">@product.IDSP</div>
+                        </td>
+                        <td>
+
+                            <a style="text-decoration:none;color:#000;" href="#">
+                                <div style="display: flex; align-items: center; width: 253px;">
+                                    <img style="width: 60px; height: 70px; vertical-align: middle; border-style: none;" src="~/img/sanpham/@product.HinhSP" />
+                                    <div style="margin-left:30px;">@product.TenIP</div>
+                                </div>
+                            </a>
+                        </td>
+                        <td>
+                            <div style="text-align: center; color: rgb(1, 70, 134); ">@String.Format(formatMoney, "{0:c0}", product.Dongia)</div>
+                        </td>
+
+                        <td>
+                            <input class="form-control" style="margin-left:30px;text-align: center; width: 60% !important; border: 1px solid #808080; border-radius: 4px;" type="number" min="1" max="50" value="@product.Number" name="SoLuong" />
+                        </td>
+                        <td>
+                            <div style="text-align: center; color: rgb(1, 70, 134); ">@String.Format(formatMoney, "{0:c0}", product.Dongia)</div>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn "><i style="background-color:none;" class="fa-sharp fa-solid fa-pen-to-square"></i></button>
+                            <a href="@Url.Action("XoaMatHang","Cart" ,new {MaSP = product.IDSP })" data-id="@String.Format(formatMoney, "{0:c0}", product.Dongia)" class="btn btn-sm  btnDelete"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
+                    }
+
+                </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-bottom:20px;" class="col-lg-4">
+            <div style="border: 1px solid rgb(224, 224, 224); margin-top: 17px; padding: 10px; border-radius: 10px;">
+                <div style=" margin: 14px auto;">
+                    <span>Số lượng sản phẩm</span>
+                    <span style="float: right; ">@ViewBag.TotalNumber</span>
+                </div>
+                <hr />
+                <div style="">
+                    <span>Tổng tiền</span>
+                    <span style="float: right; font-weight: bold; font-size: large; color: rgb(1, 70, 134); ">@String.Format(formatMoney, "{0:c0}", ViewBag.TotalPrice)</span>
+                </div>
+                <form action="/" style="margin: 15px auto 21px;" method="post">
+                    <a style="background:rgb(1, 70, 134);width:100%;" href="@Url.Action("DatHang","Cart")" class="btn btn-sm  btn-success">Thanh Toán</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

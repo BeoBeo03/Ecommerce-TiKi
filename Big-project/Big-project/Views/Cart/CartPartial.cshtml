@@ -1,0 +1,17 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+<link rel="stylesheet" href="~/asset/sidebar.css">
+<link rel="stylesheet" href="~/asset/main.css">
+@using Big_project.Models
+
+        <a href="@Url.Action("GetCartInfo", "Cart")" style="text-decoration:
+none;font-size:1.8rem; color: #fff; font-weight: bold">
+            <div style="display: inline-block; position: relative; cursor: pointer; margin-top: 14px;" class="header__cart-wrap">
+                <span style=" position: absolute; border-radius: 50%; background-color: #fdd835; top: -40%; right: -14px; width: 25px; height: 20px; color: #000; text-align: center; line-height: 22px; padding: 0 4px;" class="header__cart-notice">@ViewBag.TotalNumber</span>
+                <i style="font-size: 2.4rem;" class="header__cart-icon fa-solid fa-cart-shopping"></i>
+
+            </div>
+            <span>Giỏ hàng</span>
+        </a>
+
+
+

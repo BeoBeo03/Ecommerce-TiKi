@@ -1,0 +1,260 @@
+﻿@model Big_project.Models.Products
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<link href="~/asset/admin.css" rel="stylesheet" />
+<div style="margin-top: 20px;" class="main-content">
+    <div class="header-admin">
+        <h4>
+            <div style="font-size: 3rem;" class="header-title">
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Chỉnh sửa thông tin sản phẩm
+            </div>
+        </h4>
+        <div style="font-size:2rem;" class="user-wrapper">
+            <img src="~/img/image/admin.jpg" width="40px" height="40px" alt="">
+            <div>
+                <h4>User Admin</h4>
+                <small>Chào admin trở lại </small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+
+    .container-text {
+        background-image: url(https://static.pexels.com/photos/4827/nature-forest-trees-fog.jpeg);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        color: #FFFFFF;
+        padding-top: 20px;
+        font-size: 170px;
+        font-family: 'Bungee', cursive;
+        animation: filling 3s ease forwards;
+    }
+</style>
+<div class="container-text" style="font-size: 3rem; text-align: center; font: Comic Sans MS cursive;">Are you sure you want to delete this?</div>
+<div>
+
+    <hr />
+    <dl style="font-size:1rem;" class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donvitinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongiabd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongiabd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhSP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.star)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.star)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cauhinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cauhinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dongia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhminhhoa1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinhminhhoa1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhminhhoa2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinhminhhoa2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhminhhoa3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinhminhhoa3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinhminhhoa4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinhminhhoa4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Screen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Screen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraAfter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraAfter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CameraBefore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CameraBefore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Feedback)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Feedback)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imgdescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imgdescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluongban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category1)
+        </dd>
+
+        
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-primary"  /> |
+            @Html.ActionLink("Back to List", "Index","ProductsAdmin",new {@class = "btn btn-primary" })
+        </div>
+    }
+</div>

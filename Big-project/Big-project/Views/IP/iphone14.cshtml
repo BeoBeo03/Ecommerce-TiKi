@@ -1,0 +1,430 @@
+﻿@model IEnumerable<Big_project.Models.Products>
+@{
+    ViewBag.Title = "iphone14";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="grid">
+        <div class="content__first">
+            <a href="">Trang chủ</a>
+            <span>></span>
+            <a href="">Điện thoại Smartphone</a>
+        </div>
+        <div class="sidebar">
+            <div class="content__left">
+                <div class="content__left-location">
+                    <h3>Địa chỉ nhận hàng</h3>
+                    <span style="text-decoration:underline;">Q7, Phú Mỹ,Hồ Chí Minh</span>
+                    <p style="color:blue;cursor: pointer;margin-top:6px;">Đổi địa chỉ</p>
+
+                </div>
+
+                <ul class="content__left-list">
+                    <li class="content__left-items"><h3>Dịch vụ</h3></li>
+                    <li class="content__left-items ">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service ">
+                            <img src="https://salt.tikicdn.com/ts/upload/b3/21/cf/c6525bcd44b3bb1b793277cc98487799.png" alt="">
+                            <span>Giao siêu tốc 2H</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <img src="https://salt.tikicdn.com/ts/upload/e9/14/26/52318ad1543ad9d3ee5b633b3df0750d.png" alt="">
+                            <span>Thưởng thêm Astra</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <img src="https://salt.tikicdn.com/ts/upload/ec/86/62/a28152ea23fd7d723d968579f3970280.png" alt="">
+                            <span>Không giới hạn</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Rẻ hơn hoàn tiền</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Trả góp 0%</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items">
+                        <h3>Nơi bán</h3>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Hồ Chí Minh</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Hà Nội</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Đà Nẵng</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Cà Mau</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items"><h3>Đánh giá</h3></li>
+                    <li class="content__left-items">
+                        <div class="content__items-feedback">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                        </div>
+                        <a href="" class="content__items-star">
+                            từ 5 sao
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div class="content__items-feedback">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star-black.png" alt="">
+                        </div>
+                        <a href="" class="content__items-star">
+                            từ 4 sao
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div class="content__items-feedback">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star-black.png" alt="">
+                            <img src="~/img/star-black.png" alt="">
+                        </div>
+                        <a href="" class="content__items-star">
+                            từ 3 sao
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items"><h3>Giá</h3></li>
+                    <li class="content__left-items">
+                        <div class="content__items-price">
+                            <span>5.500.000 -> 23.500.000</span>
+                        </div>
+                    </li>
+                    <li class="content__left-items">
+                        <div class="content__items-price">
+                            <span>Trên 23.500.000</span>
+                        </div>
+                    </li>
+                    <label for="">Chọn giá khoảng : </label>
+                    <li class="content__left-items">
+
+                        <div class="content__items-input">
+                            <input type="text" class="content__items-number">
+                        </div>
+                        <div class="content__items-inline"></div>
+                        <div class="content__items-input">
+                            <input type="text" class="content__items-number">
+                        </div>
+                    </li>
+                    <li class="content__left-items">
+                        <button>Áp dụng</button>
+                    </li>
+
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items">
+                        <h3>Thương hiệu</h3>
+                    </li>
+                    <li class="content__left-items">
+                        <div class="content__items-icon-check">
+                            <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Iphone</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items">
+                        <h3>Màu sắc</h3>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Trắng</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Đen</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Đỏ</span>
+                        </a>
+                    </li>
+                    <li id="flip" class="content__left-see-more">
+                        <div class="content__left-down">
+                            <i class="fa-solid fa-caret-down"></i>
+                        </div>
+                        <span>Xem thêm</span>
+                    </li>
+                    <li id="panel" class="content__left-items">
+                        <div class="content__left-item-seemore">
+
+                            <div id="link" class="content__items-icon-check content__items-checked">
+                                <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                                <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                            </div>
+                            <a href="" class="content__items-service">
+                                <span>Xanh lá</span>
+                            </a>
+                        </div>
+                        <div class="content__left-item-seemore">
+
+                            <div id="link" class="content__items-icon-check content__items-checked">
+                                <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                                <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                            </div>
+                            <a href="" class="content__items-service">
+                                <span>Xanh dương</span>
+                            </a>
+                        </div>
+                        <div class="content__left-item-seemore">
+
+                            <div id="link" class="content__items-icon-check content__items-checked">
+                                <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                                <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                            </div>
+                            <a href="" class="content__items-service">
+                                <span>Hồng</span>
+                            </a>
+                        </div>
+                        <div class="content__left-item-seemore">
+
+                            <div id="link" class="content__items-icon-check content__items-checked">
+                                <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                                <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                            </div>
+                            <a href="" class="content__items-service">
+                                <span>Tím</span>
+                            </a>
+                        </div>
+                        <div class="content__left-item-seemore">
+
+                            <div id="link" class="content__items-icon-check content__items-checked">
+                                <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                                <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                            </div>
+                            <a href="" class="content__items-service">
+                                <span>Vàng</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="content__left-list">
+                    <li class="content__left-items">
+                        <h3>Nhà cung cấp</h3>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Tiki Trading</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>HAPPY PHONE</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>THẮNG THAO MOBILE</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>SAM CENTER</span>
+                        </a>
+                    </li>
+                    <li class="content__left-items">
+                        <div id="link" class="content__items-icon-check content__items-checked">
+                            <img class="content__items-check-empty" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/unchecked.svg" alt="">
+                            <img class="content__items-check-fill" src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/checked.svg" alt="">
+                        </div>
+                        <a href="" class="content__items-service">
+                            <span>Công ty Smart</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content__right">
+                <div class="content__right-header">
+                    <h3>Điện thoại SmartPhone</h3>
+                    <div class="content__header-choose">
+                        <div class="content__header-list active">
+                            <a href="">Phổ biến</a>
+                        </div>
+                        <div class="content__header-list" onclick="changeProductList('best-sell',this)">
+                            <a href="">Bán chạy</a>
+                        </div>
+                        <div class="content__header-list" onclick="changeProductList('new',this)">
+                            <a href="">Hàng mới</a>
+                        </div>
+                        <div class="content__header-list">
+                            <a href="">Giá thấp đến cao</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content__right-app">
+                    <div class="content__app-items">
+                        <img src="https://salt.tikicdn.com/ts/upload/b3/21/cf/c6525bcd44b3bb1b793277cc98487799.png" alt="">
+                    </div>
+                    <div class="content__app-items">
+                        <span>Apple</span>
+                    </div>
+                    <div class="content__app-items">
+                        <span>Uy tín</span>
+                    </div>
+                    <div class="content__app-items">
+                        <span>Chất lượng</span>
+                    </div>
+                </div>
+                <div class="content__btn">
+                    <div class="row">
+                        @foreach (var product in Model)
+                        {
+                            if (product.DanhMuc == "Iphone14")
+                            {
+
+                                <div id="trend" class="col-lg-3">
+                                    <div class="box-pro">
+                                        <a href="@Url.Action("Details","CustomerProducts",new {id =@product.IDSP})" class="content__btn-img">
+                                            <img class="content__img-offical" src="~/img/offical.png" alt="">
+
+                                            <img class="box-pro-img" src="~/img/sanpham/product.HinhSP" alt="">
+                                        </a>
+                                        <div class="content__btn-sale-off">
+                                            <span class="content__btn-sale-off-percent">@product.sale</span>
+                                            <span class="content__btn-sale-off-down">GIẢM</span>
+                                        </div>
+                                        <ul class="box-description">
+                                            <li class="description content__product">@product.TenIP  </li>
+                                            <li class="description">
+                                                <div class="description__feedback">
+                                                    <Span>@product.star</Span>
+                                                    <img src="~/img/star.png" alt="">
+                                                    <span>Đã bán @product.Soluongban</span>
+                                                </div>
+                                            </li>
+
+                                            <li class="description" style="color: #666;font-size: 1.8rem;">
+                                                <span class="price" style="text-decoration:line-through;font-size: 1.4rem;">@product.Dongiabd <sup>đ</sup></span>
+                                                <span class="price" style="color:red;">@product.Dongia <sup style="text-decoration:underline;">đ</sup></span>
+                                            </li>
+                                            <li class="description">
+                                                <div class="description__free">
+
+                                                    <span>Freeship+</span>
+                                                    <span>Trả góp</span>
+                                                </div>
+                                            </li>
+                                            <li class="description">
+                                                <div class="description__inline"></div>
+                                            </li>
+                                            <li class="description">
+                                                <a style="width:100%;" href="@Url.Action("AddToCart", "Cart", new {id = product.IDSP })" class="btn btn-primary">Thêm vào giỏ hàng</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

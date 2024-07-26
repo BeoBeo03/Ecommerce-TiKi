@@ -1,0 +1,306 @@
+﻿@using Big_project.Models
+@model IEnumerable<Products>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Document</title>
+    <link href="~/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/asset/main.css" rel="stylesheet" />
+    <link href="~/asset/responsive.css" rel="stylesheet">
+    <link href="~/asset/sidebar.css" rel="stylesheet" />
+    <link href="~/asset/Description-sp.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="grid">
+                <div class="header__with-search">
+                    <div class="header__logo">
+                        <img src="~/img/logo-tiki.png" alt="" class="header__logo-img">
+                    </div>
+
+                    <div class="header__search">
+                        <div class="header__search-input-wrap">
+                            <input type="text" class="header__search-input" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn...">
+                        </div>
+                        <div class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                            <span style="font-size: 1.3rem;color:#fff;font-weight: 600;">Tìm Kiếm</span>
+                        </div>
+                    </div>
+
+                    <div class="header__search-account">
+                        <img src="~/img/avatar.png" alt="" class="header__search-avatar">
+                        <div class="header__account-btn">
+                            <div class="header__login-logout">
+                                <div class="header__account-login">
+                                    <a href="@Url.Action("Login","Users")">Đăng nhập</a>
+                                </div>
+                                <span style="font-size: 1.2rem;color:#fff;padding:0 3px;">/</span>
+                                <div class="header__account-register">
+                                    <a href="@Url.Action("Register","Users")">Đăng kí</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                    <button id="cart" class="header__cart">
+                        <div class="header__cart-wrap">
+                            <span class="header__cart-notice">0</span>
+                            <i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+
+                        </div>
+                        <span>Giỏ hàng</span>
+                    </button>
+                    <div id="myModal" class="modal-cart open">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Giỏ Hàng</h5>
+                                <span class="close">&times;</span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="cart-row">
+                                    <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                                    <span class="cart-price cart-header cart-column">Giá</span>
+                                    <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                                </div>
+                                <div class="cart-items">
+                                    <!-- <div class="cart-row">
+                                        <div class="cart-item cart-column">
+                                            <img class="cart-item-fdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgfdgimage" src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000" width="100" height="100">
+                                            <span class="cart-item-title">Mũi Hàn 500</span>
+                                        </div>
+                                        <span class="cart-price cart-column">25000đ</span>
+                                        <div class="cart-quantity cart-column">
+                                            <input class="cart-quantity-input" type="number" value="1">
+                                            <button class="btn btn-danger" type="button">Xóa</button>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="cart-total">
+                                    <strong class="cart-total-title">Tổng Cộng:</strong>
+                                    <span class="cart-total-price">0VNĐ</span>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary close-footer">Đóng</button>
+                                <button type="button" class="btn btn-primary order">Thanh Toán</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="header__with-solgan">
+                    <div class="header__solgan">
+                        <img src="~/img/solgan.png" alt="" class="header__solgan-img">
+                    </div>
+                    <ul class="header__solgan-list">
+                        <li class="header__solgan-items">
+                            <a href="">Iphone 13</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="">Iphone 13 pro max</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="">Iphone 14</a>
+                        </li>
+                        <li class="header__solgan-items">
+                            <a href="">Iphone 14 pro max</a>
+                        </li>
+                    </ul>
+                    <div class="header__solgan-end">
+                        <a href="~/BanHangVsTiki.html">
+                            <i class="header__store fa-solid fa-store"></i>
+                            <span>Bán hàng cùng Tiki</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="grid">
+                <div class="content__header">
+                    <div class="content__header-left">
+                        <h3>Apple iPhone 13 Pro Max / 128GB </h3>
+                        <div class="content__feedback">
+
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                            <img src="~/img/star.png" alt="">
+                        </div>
+                        <span>1.000 đánh giá</span>
+                    </div>
+                    <div class="content__header-right">
+                        <button class="content__header-like">
+                            <i class="fa-solid fa-thumbs-up"></i>
+                            <span>Thích 947</span>
+                        </button>
+                        <button class="content__header-share">
+                            <i class="fa-solid fa-share"></i>
+                            <span>Chia sẽ</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="content__header-inline"></div>
+                <div class="content__header-btn">
+                    <div class="content__left">
+                        <section class="silder owl-carousel owl-theme">
+                            <div class="slider__items slider__item-three">
+                                <img src="~/img/13promaxxanh/chat-vector-icon-png_260846.jpg" alt="">
+                            </div>
+                            <div class="slider__items slider__item-one">
+                                <img src="~/img/13promaxxanh/iphone-13-pro-max-xanh-6.jpg" alt="">
+                            </div>
+                            <div class="slider__items slider__item-two">
+                                <img src="~/img/13promaxxanh/iphone-13-pro-max-xanh-7.jpg" alt="">
+                            </div>
+                            <div class="slider__items slider__item-three">
+                                <img src="~/img/13promaxxanh/iphone-13-pro-max-xanh-8.jpg" alt="">
+                            </div>
+
+                        </section>
+                        <div class="content__left-return-policy">
+                            <div class="content__left-return-policy-1">
+                                <div class="content__left-return-policy-btn">
+                                    <div>
+                                        <i class="return__policy-icon fa-solid fa-boxes-packing"></i>
+                                        <span class="return__policy-text">Hư gì đổi nấy 12 tháng tại Tiki shop (miễn phí tháng đầu)</span>
+                                    </div><br>
+                                    <div class="return__policy-bottom">
+                                        <i class="return__policy-icon fa-sharp fa-solid fa-box"></i>
+                                        <span class="return__policy-text">Bảo hành chính hãng điện thoại 1 năm tại các trung tâm bảo hành hãng</span>
+                                    </div>
+                                </div>
+                                <div class="content__return-right">
+                                    <i class="return__policy-icon fa-solid fa-shield"></i>
+                                    <span class="return__policy-text">Bảo hành chính hãng điện thoại 1 năm tại các trung tâm bảo hành hãng</span>
+                                </div>
+
+                            </div>
+                            <div class="content__left-advertisement">
+                                <img src="~/img/description/ip13promax.jpg" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="content__right">
+                        <div class="content__right-btn">
+                            <h3>Cấu hình điện thoại iPhone 13 Pro Max 128GB</h3>
+                            <ul class="content__right-list">
+                                <li class="content__right-items content__right-items-background">
+                                    <label class="content__right-items-description" for="">Màn hình:</label>
+                                    <span>OLED6.7"Super Retina XDR</span>
+                                </li>
+                                <li class="content__right-items">
+                                    <label class="content__right-items-description" for="">Hệ điều hành:</label>
+                                    <span>iOS 15</span>
+                                </li>
+                                <li class="content__right-items content__right-items-background">
+                                    <label class="content__right-items-description" for="">Camera sau:</label>
+                                    <span>3 camera 12 MP</span>
+                                </li>
+                                <li class="content__right-items ">
+                                    <label class="content__right-items-description" for="">Camera trước:</label>
+                                    <span>12 MP</span>
+                                </li>
+                                <li class="content__right-items content__right-items-background">
+                                    <label class="content__right-items-description" for="">Chip:</label>
+                                    <span>Apple A15 Bionic</span>
+                                </li>
+                                <li class="content__right-items ">
+                                    <label class="content__right-items-description" for="">RAM:</label>
+                                    <span>6 GB</span>
+                                </li>
+                                <li class="content__right-items content__right-items-background">
+                                    <label class="content__right-items-description" for="">Dung lượng lưu trữ:</label>
+                                    <span>128 GB</span>
+                                </li>
+                                <li class="content__right-items ">
+                                    <label class="content__right-items-description" for="">SIM:</label>
+                                    <span>1 Nano SIM & 1 eSIMHỗ trợ 5G</span>
+                                </li>
+                                <li class="content__right-items content__right-items-background">
+                                    <label class="content__right-items-description" for="">Pin, Sạc:</label>
+                                    <span>4352 mAh20 W</span>
+                                </li>
+                            </ul>
+                            <button class="buy-btn">MUA NGAY</button>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="modal__content-footer">
+                <div class="modal__content-body">
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">CHĂM SÓC KHÁCH HÀNG</li>
+                        <li class="modal__content-btn"> <a href="">Trung tâm trợ giúp</a></li>
+                        <li class="modal__content-btn"> <a href="">Hướng dẫn mua hàng</a></li>
+                        <li class="modal__content-btn"> <a href="">Hướng dẫn bán hàng</a></li>
+                        <li class="modal__content-btn"> <a href="">Thanh toán</a></li>
+                        <li class="modal__content-btn"> <a href="">Vận chuyển</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">Về Tiki</li>
+                        <li class="modal__content-btn"> <a href="">Giới Thiệu Về Tiki Việt Nam</a></li>
+                        <li class="modal__content-btn"> <a href="./TikiXu.html">Giới thiệu về tiki xu</a></li>
+                        <li class="modal__content-btn"> <a href="">Điều Khoản Tiki</a></li>
+                        <li class="modal__content-btn"> <a href="">Chính Sách Bảo Mật</a></li>
+                        <li class="modal__content-btn"> <a href="">Flash Sales</a></li>
+
+                        <li class="modal__content-btn"> <a href="">Liên Hệ Với Truyền Thông</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">THEO DÕI CHÚNG TÔI TRÊN</li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-facebook"></i><a href="">Facebook</a></li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-instagram"></i><a href="">Instagram</a></li>
+                        <li class="modal__content-btn"><i class="modal__content-icon fa-brands fa-linkedin"></i><a href="">Linkedin</a></li>
+                    </ul>
+                    <ul class="modal__content-col">
+                        <li class="modal__content-row">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</li>
+                        <div class="modal__content-app">
+                            <img src="~/img/app.png" alt="App Store" class="header__download-link">
+                        </div>
+                        <div class="modal__content-app">
+                            <img src="~/img/gg-play.png" alt="App Store" class="header__download-link">
+                        </div>
+                        <div class="header__qr-link">
+                            <img src="~/img/app store.png" alt="App Store" class="header__download-link">
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <button class="app__speak">
+            <img src="~/img/chat-vector-icon-png_260846.jpg" alt="">
+        </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="~/owl.carousel.min.js"></script>
+    <script src="~/js/jvs.js"></script>
+
+</body>
+</html>

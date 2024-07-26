@@ -1,0 +1,176 @@
+﻿@using Big_project.Models
+@model List<CartItem>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Customer khach = Session["TaiKhoan"] as Customer;
+}
+@{
+    var user = Session["Account"] as Big_project.Models.Customer;
+    var formatMoney = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+
+@*<h2 style=" text-align: center; font-size: 50px; color: #2c2c2c;  letter-spacing: .05em; text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2); height: 100px; padding-top: 21px;">THÔNG TIN KHÁCH HÀNG</h2>
+    <div style="width:1000px;text-align:center;margin-left:240px;" class="row">
+
+        <table style="width:100%;max-width:100%;text-align:center;" class="table table-hover">
+            <tr>
+                <td>Họ tên: </td>
+                <td>@khach.NameCus</td>
+            </tr>
+            <tr>
+                <td>Địa chỉ: </td>
+                <td>@khach.AdressCus</td>
+
+            </tr>
+            <tr>
+                <td>Điện thoại: </td>
+                <td>@khach.PhoneCus</td>
+            </tr>
+            <tr>
+                <td>Ngày đặt: </td>
+                <td>@DateTime.Now.ToShortDateString()</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    @Html.ActionLink("ĐẶT HÀNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        </table>
+    </div>*@
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    }
+</style>
+<div class="container">
+    <h2 style="margin-top: 20px; font-size: 3rem;text-align: center; font-size: 50px; color: #2c2c2c; letter-spacing: .05em; text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2); height: 100px; padding-top: 21px; ">
+        Chi tiết đơn hàng
+        <i class="fa-solid fa-box"></i>
+    </h2>
+    <h5 style="font-size:2rem;">Đơn đặt hàng của bạn được xác nhận!</h5>
+    <span style="font-size:1.5rem;font-weight:700;margin-top:1.5rem;display:block;">Xin chào, @khach.NameCus!</span>
+    <span>Đơn hàng của bạn được giao trong 2 ngày tới nếu bạn đồng ý đặt hàng</span>
+    <div style=" border-bottom: 1px solid #e4d9d9;" class="row">
+        <div style="border:none;" class="col-lg-8 cart-column ">
+
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0 20px;">
+                <tbody>
+                    <tr style=" border: 1px solid rgb(206, 206, 206); border-radius: 10%; }">
+                        <th style="text-align: center;padding: 10px; font-weight: unset;">Sản phẩm</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Đơn giá</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Số lượng</th>
+                        <th style="text-align: center; padding: 10px; font-weight: unset;">Thành tiền</th>
+                    </tr>
+
+                    @foreach (var product in Model)
+                    {
+                        <tr class="cart-item">
+
+                            <td>
+
+                                <a style="text-decoration:none;color:#000;" href="#">
+                                    <div style="display: flex; align-items: center; width: 253px;">
+                                        <img style="width: 60px; height: 70px; vertical-align: middle; border-style: none;" src="~/img/sanpham/@product.HinhSP" />
+                                        <div style="margin-left:30px;">@product.TenIP</div>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>
+                                <div style="text-align: center; color: rgb(1, 70, 134); ">@String.Format(formatMoney, "{0:c0}", product.Dongia)</div>
+                            </td>
+
+                            <td>
+                                <input class="form-control" style="margin-left:30px;text-align: center; width: 60% !important; border: 1px solid #808080; border-radius: 4px;" type="number" min="1" max="50" value="@product.Number" name="SoLuong" />
+                            </td>
+                            <td>
+                                <div style="text-align: center; color: rgb(1, 70, 134); ">@String.Format(formatMoney, "{0:c0}", product.Dongia)</div>
+                            </td>
+
+
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <div style="border-top:1px solid #dee2e6;margin-top:1rem;margin-bottom:1rem;">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td style="padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6;">
+                            <div style="padding-bottom: .5rem; padding-top: .5rem ">
+                                <span style="color: #6c757d; display: block;">Ngày đặt hàng</span>
+                                <span>@DateTime.Now.ToShortDateString()</span>
+                            </div>
+                        </td>
+                        <td style="padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6;">
+                            <div style="padding-bottom: .5rem; padding-top: .5rem ">
+                                <span style="color: #6c757d; display: block;">Địa chỉ nhận hàng</span>
+                                <span>@khach.AdressCus</span>
+                            </div>
+                        </td>
+                        <td style="padding: .75rem; vertical-align: top; border-top: 1px solid #dee2e6;">
+                            <div style="padding-bottom: .5rem; padding-top: .5rem ">
+                                <span style="color: #6c757d; display: block;">SĐT</span>
+                                <span>@khach.PhoneCus</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div style="display:flex;justify-content:flex-end;" class="row ">
+        <div class="col-md-6">
+            <table class="table table-borderless">
+                <tbody class="totals-bill">
+                    <tr>
+                        <td>
+                            <div class="text-left"> <span class="text-muted">Tổng phụ</span> </div>
+                        </td>
+                        <td>
+                            <div class="text-right"> <span>@String.Format(formatMoney, "{0:c0}", ViewBag.TongTien)</span> </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="text-left"> <span class="text-muted">Phí vận chuyển</span> </div>
+                        </td>
+                        <td>
+                            <div class="text-right"> <span>0 đ</span> </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="text-left"> <span class="text-muted">Khuyến mãi</span> </div>
+                        </td>
+                        <td>
+                            <div class="text-right"> <span class="text-success">0 đ</span> </div>
+                        </td>
+                    </tr>
+                    <tr class="border-top border-bottom">
+                        <td>
+                            <div class="text-left"> <span class="font-weight-bold">Tổng tiền</span> </div>
+                        </td>
+                        <td>
+                            <div class="text-right"> <span class="font-weight-bold">@String.Format(formatMoney, "{0:c0}", ViewBag.TongTien) </span> </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+               
+            <div style="text-align:right;" class="order-action">
+                @Html.ActionLink("Thanh Toán", "DongYDatHang", null, new{@class = "btn btn-primary" })
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

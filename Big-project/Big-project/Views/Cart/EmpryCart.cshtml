@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "EmpryCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-bottom: 20px; background: rgb(255, 255, 255); padding: 40px 20px; border-radius: 4px; text-align: center; width: 100%;" class="container">
+    <img src="~/img/sanpham/mascot@2x.png"  alt="Alternate Text" />
+    <h2 style="margin:20px auto; color:gray;">@ViewBag.EmptyNotification</h2>
+    <a style="margin-bottom:20px;" href="@Url.Action("Index","Home")" class="btn btn-danger  ">Tiếp tục mua sắm >></a>
+
+</div>
+

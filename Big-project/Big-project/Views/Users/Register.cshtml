@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/asset/DangKyTiki.css"  rel="stylesheet" />
+<div class="backGround BaG">
+    <section style="position: relative;">
+        <div class="backGroundInside BaGInside" style="row-gap: 0px">
+            <div class="leftSide-Form LeS-Form col-md-6 col-xm-12 col-xs-12">
+                <div class="leftSide LeS">
+                    <div class="leftSide-Heading LeS-hd">
+                        <h1>Đăng ký bán hàng cùng TIKI</h1>
+                    </div>
+                    <div class="leftSide-Caution LeS-Caut">
+                        <p>Tiếp cận hơn <b style="color: blue;">22 triệu lượt truy</b> cập mỗi tháng!</p>
+                    </div>
+                    <div class="leftSide-Image LeS-Img">
+                        <img src="https://salt.tikicdn.com/cache/w680/ts/user/dc/e6/b4/fa5101071b365ee2f385fd7d208b309f.jpg" alt="Be successful together with Tiki">
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightSide RiS col-md-6 col-xm-12 col-xs-12">
+                <div class="rightSide-Baby RiS-Baby">
+                    <div class="rightSide-Heading RiS-hd">
+                        <h2 class="rightSide-Heading RiS-hd2">Đăng ký ngay</h2>
+                    </div>
+                        @using (Html.BeginForm("Register", "Users"))
+                        {
+                <form>
+                    @Html.ValidationSummary(true)
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La ">
+                            Địa chỉ email
+                            <span class="sc-tip"><abbr title="Vui lòng sử dụng email chính của bạn để đảm bảo bạn không bỏ lỡ các thông tin quan trọng từ Tiki."><img class="label-Image" src="~/img/image/Chấm thang.jpg" alt="caution"></abbr></span>
+                        </div>
+                        <div class="rightSide-Input-Email RiS-IP-Em ">
+                            <input type="text" class="Input" id="emailInput email" name="EmailCus" placeholder="Nhập địa chỉ email" value="">
+
+                        </div>
+                        <span id="email_error" style="color: red; font-size: small;"></span>
+                    </div>
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La ">
+                            <div>
+                                <div>Họ và tên</div>
+                                <div class="decription">
+                                    Điền họ và tên như trên giấy tờ tùy thân.
+                                    <abbr title="Để tránh việc hồ sơ đăng ký bị từ chối đáng tiếc, xin Quý Nhà Bán lưu ý:
+    - Không điền tên công ty, tên cửa hàng hoặc tên riêng vào ô này.
+    - Điền họ & tên như trên CMND/Giấy Căn Cước.
+    - Vui lòng sử dụng tiếng Việt có dấu & viết hoa ký tự đầu tiên của mỗi từ."><img class="label-Image " src="~/img/image/Chấm thang.jpg" alt="caution"></abbr>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rightSide-Input-Name RiS-IP-Na ">
+                            <input type="text" maxlength="30" class="Input" id="nameInput name" name="NameCus" placeholder="Nhập họ và tên" value="">
+
+                        </div>
+                        <span id="name_error" style="color: red; font-size: small;"></span>
+                    </div>
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La">
+                            Nơi ở :
+                            <abbr title="Nhập đúng địa chỉ để Shop dễ dàng giao hàng nhé !."><img class="label-Image" src="~/img/image/Chấm thang.jpg" alt="caution"></abbr>
+                        </div>
+                        <div class="rightSide-Input-Country RiS-IP-Ctry">
+                            <input type="text" class="Input" id="countryInput adress" name="AdressCus" placeholder="Địa chỉ :" value="">
+
+                        </div>
+                        <span id="country_error" style="color: red; font-size: small;"></span>
+                    </div>
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La">
+                            Số điện thoại
+                        </div>
+                        <div class="rightSide-Input-PhoneNum RiS-IP-Num">
+                            <input type="text" class="Input" id="numInput" maxlength="10" name="PhoneCus" placeholder="Nhập số điện thoại" value="">
+
+                        </div>
+                        <span id="num_error" style="color: red; font-size: small;"></span>
+                    </div>
+
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La ">
+                            Mật khẩu
+                        </div>
+                        <div class="rightSide-Input-Password RiS-IP-Pass ">
+                            <input type="password" maxlength="30" class="Input" id="passwordInput pwd" name="PassCus" placeholder="Nhập mật khẩu" value="">
+
+                        </div>
+                        <span id="password_error" style="color: red; font-size:small;"></span>
+                    </div>
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="rightSide-label RiS-La ">
+                            Xác nhận mật khẩu
+                        </div>
+                        <div class="rightSide-Input-Password RiS-IP-Pass ">
+                            <input type="password" maxlength="30" class="Input" id="repasswordInput pwd" name="PassCus" placeholder="Nhập lại mật khẩu" value="">
+                        </div>
+                        <span id="repassword_error" style="color: red; font-size:small"></span>
+                    </div>
+                    <div class="rightSide-Input RiS-IP">
+                        <div class="input-box">
+                            <label for="gioitinh">Giới tính</label>
+                            <br>
+                            <select name="SexCus" id="gioitinh">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="null">Khác</option>
+                            </select>
+                        </div>
+                        <div class="input_field checkbox_option">
+                            <input type="checkbox" id="cb2">
+                            <label for="cb2">Tôi chấp nhận các điều khoản và điều kiện</label>
+                        </div>
+                    </div>
+                    <div class="rightSide-submit RiS-Sub">
+                        <button type="submit" class="submit" id="" onclick="return checkValue();" name="" value="">Đăng ký ngay</button>
+                    </div>
+                </form>
+                        }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

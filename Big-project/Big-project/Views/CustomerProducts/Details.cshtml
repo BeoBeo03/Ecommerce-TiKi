@@ -1,0 +1,129 @@
+﻿@model Big_project.Models.Products
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/asset/Description-sp.css" rel="stylesheet" />
+<div class="content">
+    <div class="grid">
+        <div class="content__header">
+            <div class="content__header-left">
+                <h3>@Model.TenIP </h3>
+                <div class="content__feedback">
+
+                    <img src="~/img/star.png" alt="">
+                    <img src="~/img/star.png" alt="">
+                    <img src="~/img/star.png" alt="">
+                    <img src="~/img/star.png" alt="">
+                    <img src="~/img/star.png" alt="">
+                </div>
+                <span>@Model.Feedback đánh giá</span>
+            </div>
+            <div class="content__header-right">
+                <button class="content__header-like">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <span>Thích 947</span>
+                </button>
+                <button class="content__header-share">
+                    <i class="fa-solid fa-share"></i>
+                    <span>Chia sẽ</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="content__header-inline"></div>
+        <div class="content__header-btn">
+            <div class="content__left">
+                <section class="silder owl-carousel owl-theme">
+                    <div style="width:1042px;height:450px;" class="slider__items slider__item-three">
+                        <img src="~/img/sanpham/@Model.Hinhminhhoa1" alt="">
+                    </div>
+                    <div class="slider__items slider__item-one">
+                        <img src="~/img/sanpham/@Model.Hinhminhhoa2" alt="">
+                    </div>
+                    <div class="slider__items slider__item-two">
+                        <img src="~/img/sanpham/@Model.Hinhminhhoa3" alt="">
+                    </div>
+                    <div class="slider__items slider__item-three">
+                        <img src="~/img/sanpham/@Model.Hinhminhhoa4" alt="">
+                    </div>
+                </section>
+                <div class="content__left-return-policy">
+                    <div class="content__left-return-policy-1">
+                        <div class="content__left-return-policy-btn">
+                            <div>
+                                <i class="return__policy-icon fa-solid fa-boxes-packing"></i>
+                                <span class="return__policy-text">Hư gì đổi nấy 12 tháng tại Tiki shop (miễn phí tháng đầu)</span>
+                            </div><br>
+                            <div class="return__policy-bottom">
+                                <i class="return__policy-icon fa-sharp fa-solid fa-box"></i>
+                                <span class="return__policy-text">Bảo hành chính hãng điện thoại 1 năm tại các trung tâm bảo hành hãng</span>
+                            </div>
+                        </div>
+                        <div class="content__return-right">
+                            <i class="return__policy-icon fa-solid fa-shield"></i>
+                            <span class="return__policy-text">Bảo hành chính hãng điện thoại 1 năm tại các trung tâm bảo hành hãng</span>
+                        </div>
+
+                    </div>
+                    <div class="content__left-advertisement">
+                        <img src="~/img/sanpham/@Model.Imgdescription" alt="">
+                    </div>
+
+                </div>
+            </div>
+            <div class="content__right">
+                <div class="content__right-btn">
+                    <h3>@Model.Cauhinh</h3>
+                    <ul class="content__right-list">
+                        <li class="content__right-items content__right-items-background">
+                            <label class="content__right-items-description" for="">Màn hình:</label>
+                            <span>@Model.Screen</span>
+                        </li>
+                        <li class="content__right-items">
+                            <label class="content__right-items-description" for="">Hệ điều hành:</label>
+                            <span>@Model.HDH</span>
+                        </li>
+                        <li class="content__right-items content__right-items-background">
+                            <label class="content__right-items-description" for="">Camera sau:</label>
+                            <span>@Model.CameraAfter</span>
+                        </li>
+                        <li class="content__right-items ">
+                            <label class="content__right-items-description" for="">Camera trước:</label>
+                            <span>@Model.CameraBefore</span>
+                        </li>
+                        <li class="content__right-items content__right-items-background">
+                            <label class="content__right-items-description" for="">Chip:</label>
+                            <span>@Model.Chip</span>
+                        </li>
+                        <li class="content__right-items ">
+                            <label class="content__right-items-description" for="">RAM:</label>
+                            <span>@Model.Ram</span>
+                        </li>
+                        <li class="content__right-items content__right-items-background">
+                            <label class="content__right-items-description" for="">Dung lượng lưu trữ:</label>
+                            <span>@Model.Rom</span>
+                        </li>
+                        <li class="content__right-items ">
+                            <label class="content__right-items-description" for="">SIM:</label>
+                            <span>@Model.Sim</span>
+                        </li>
+                        <li class="content__right-items content__right-items-background">
+                            <label class="content__right-items-description" for="">Pin, Sạc:</label>
+                            <span>@Model.Pin</span>
+                        </li>
+                    </ul>
+                    <a style="vertical-align: middle; line-height: 32px;" class="btn   buy-btn" href="@Url.Action("AddToCart", "Cart", new {id = Model.IDSP })">
+                        MUA NGAY
+                    </a>
+                    
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TikiShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NameUser" Type="nvarchar(max)" />
+    <Property Name="RoleUser" Type="nvarchar(max)" />
+    <Property Name="PasswordUser" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="IDCate" />
+    </Key>
+    <Property Name="IDSP" Type="int" Nullable="false" />
+    <Property Name="IDCate" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="NameCate" Type="nvarchar(max)" />
+    <Property Name="CategoryImage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="IDCus" />
+    </Key>
+    <Property Name="IDCus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCus" Type="nvarchar(max)" />
+    <Property Name="PassCus" Type="nvarchar(max)" />
+    <Property Name="PhoneCus" Type="nvarchar" MaxLength="15" />
+    <Property Name="EmailCus" Type="nvarchar(max)" />
+    <Property Name="AdressCus" Type="nvarchar(max)" />
+    <Property Name="SexCus" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDProduct" Type="int" />
+    <Property Name="IDOrder" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UnitPrice" Type="float" />
+    <Property Name="Thanhtien" Type="float" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="OrderPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDCus" Type="int" />
+    <Property Name="DateOrder" Type="date" />
+    <Property Name="AddressDeliverry" Type="nvarchar(max)" />
+    <Property Name="Trigia" Type="money" />
+    <Property Name="Dagiao" Type="bit" />
+    <Property Name="Ngaygiaohang" Type="smalldatetime" />
+    <Property Name="Tennguoinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diachinhan" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dienthoainhan" Type="varchar" MaxLength="15" />
+    <Property Name="HTThanhtoan" Type="bit" />
+    <Property Name="HTGiaohang" Type="bit" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="IDSP" />
+    </Key>
+    <Property Name="IDSP" Type="int" Nullable="false" />
+    <Property Name="TenIP" Type="nvarchar" MaxLength="100" />
+    <Property Name="Donvitinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dongiabd" Type="int" />
+    <Property Name="HinhSP" Type="varchar" MaxLength="50" />
+    <Property Name="star" Type="int" />
+    <Property Name="Cauhinh" Type="nvarchar" MaxLength="70" />
+    <Property Name="Dongia" Type="int" />
+    <Property Name="Hinhminhhoa1" Type="varchar" MaxLength="50" />
+    <Property Name="Hinhminhhoa2" Type="varchar" MaxLength="50" />
+    <Property Name="Hinhminhhoa3" Type="varchar" MaxLength="50" />
+    <Property Name="Hinhminhhoa4" Type="varchar" MaxLength="50" />
+    <Property Name="Screen" Type="nvarchar" MaxLength="40" />
+    <Property Name="HDH" Type="nvarchar" MaxLength="40" />
+    <Property Name="CameraAfter" Type="nvarchar" MaxLength="40" />
+    <Property Name="CameraBefore" Type="nvarchar" MaxLength="40" />
+    <Property Name="Chip" Type="nvarchar" MaxLength="40" />
+    <Property Name="Ram" Type="nvarchar" MaxLength="40" />
+    <Property Name="Rom" Type="nvarchar" MaxLength="40" />
+    <Property Name="Sim" Type="nvarchar" MaxLength="40" />
+    <Property Name="Pin" Type="nvarchar" MaxLength="40" />
+    <Property Name="sale" Type="nvarchar" MaxLength="40" />
+    <Property Name="Feedback" Type="nvarchar" MaxLength="40" />
+    <Property Name="Imgdescription" Type="varchar" MaxLength="40" />
+    <Property Name="Soluongban" Type="int" />
+    <Property Name="Category" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__IDOrd__440B1D61">
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__IDPro__4316F928">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IDSP" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderPro_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="IDCus" />
+      </Principal>
+      <Dependent Role="OrderPro">
+        <PropertyRef Name="IDCus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_Products_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="IDCate" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TikiShopModelStoreContainer">
+    <EntitySet Name="AdminUser" EntityType="Self.AdminUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPro" EntityType="Self.OrderPro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrderDeta__IDOrd__440B1D61" Association="Self.FK__OrderDeta__IDOrd__440B1D61">
+      <End Role="OrderPro" EntitySet="OrderPro" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__IDPro__4316F928" Association="Self.FK__OrderDeta__IDPro__4316F928">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderPro_Customer" Association="Self.FK_OrderPro_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderPro" EntitySet="OrderPro" />
+    </AssociationSet>
+    <AssociationSet Name="PK_Products_Category" Association="Self.PK_Products_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

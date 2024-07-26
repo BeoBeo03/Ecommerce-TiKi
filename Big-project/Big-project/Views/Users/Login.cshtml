@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/asset/main.css"  rel="stylesheet" />
+
+<h5 style="color: red;">@ViewBag.ThongBao</h5>
+
+<div class="modal__container js-modal-login">
+    <a href="/Home/index" class="modal__background-img">
+        <img src="~/img/logo-tiki.png" alt="" class="modal__logo-img">
+    </a>
+    <div class="modal__background-solgan">
+        <img src="~/img/solgan.png" alt="" class="modal__logo-img">
+    </div>
+    <div class="modal__container-background">
+
+        <div class="modal__header">
+            <div class="modal__header-qr">
+                <div class="modal__header-login">
+                    Đăng Nhập
+                </div>
+                <div class="modal__header-login-qr">
+                    <div class="modal__header-qr--login">
+                        Đăng nhập với mã QR
+                    </div>
+                </div>
+                <div class="modal__header-qr-img">
+                    <img src="~/img/ma-qr.png" alt="" class="modal__header-img">
+                </div>
+            </div>
+        </div>
+        @using (Html.BeginForm("Login", "Users"))
+        {
+            @Html.ValidationSummary(true)
+
+            <div class="modal__form">
+
+                <div class="modal__form-container">
+                    <div class="modal__content-group">
+                        <input style="margin-bottom:16px;" type="text" class="form-control" id="modal__form-input name" name="EmailCus" placeholder="Email/Số điện thoại/Tên đăng nhập"required>
+                    </div>
+                    <div class="modal__content-group">
+                        <input style="margin-bottom:32px;"  type="password" class="form-control" id="modal__form-input pwd"  name="PassCus" placeholder="Mật khẩu"required>
+                    </div>
+                    <div class="modal__form-controls">
+                        <button type="submit" id="modal__form-submit">ĐĂNG NHẬP</button>
+                    </div>
+
+                    <div style=" color: #05a;"  class="modal__form-side">
+                        <div style="display: flex; justify-content: space-between;" class="modal__form-policy-text">
+                            <div>Bạn chưa có tài khoản ?</div>
+                            <div href="" class="modal__form-policy-link">Đăng ký <a style="color:red;text-decoration:underline;" href="@Url.Action("Register","Users")">tại đây</a> !</div>
+                           
+                        </div>
+                    </div>
+                    <div class="modal__form-seperate">
+                        <div class="modal__form-line"></div>
+                        <div class="modal__form-or">HOẶC</div>
+                        <div class="modal__form-line"></div>
+                    </div>
+                </div>
+            </div>
+        }
+        <footer class="modal__footer">
+            <div class="modal__footer-link">
+                <a href="" class="modal__footer-icon">
+                    <img src="~/img/facebook.png" alt="" class="modal__footer-img">
+                    <span class="modal__footer-social-fb">Facebook</span>
+                </a>
+                <a href="" class="modal__footer-icon">
+                    <img src="~/img/google.png" alt="" class="modal__footer-img">
+                    <span class="modal__footer-social-gg">Google</span>
+                </a>
+                <a href="" class="modal__footer-icon">
+                    <img src="~/img/apple.png" alt="" class="modal__footer-img">
+                    <span class="modal__footer-social-apple">Apple</span>
+                </a>
+
+            </div>
+            
+        </footer>
+    </div>
+</div>
+

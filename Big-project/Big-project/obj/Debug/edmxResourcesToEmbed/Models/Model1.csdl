@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TikiShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RoleUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordUser" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="IDCate" />
+    </Key>
+    <Property Name="IDSP" Type="Int32" Nullable="false" />
+    <Property Name="IDCate" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="NameCate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.PK_Products_Category" FromRole="Category" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="IDCus" />
+    </Key>
+    <Property Name="IDCus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PassCus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneCus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="EmailCus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdressCus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SexCus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderPro" Relationship="Self.FK_OrderPro_Customer" FromRole="Customer" ToRole="OrderPro" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDProduct" Type="Int32" />
+    <Property Name="IDOrder" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="UnitPrice" Type="Double" />
+    <Property Name="Thanhtien" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="OrderPro" Relationship="Self.FK__OrderDeta__IDOrd__440B1D61" FromRole="OrderDetail" ToRole="OrderPro" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__OrderDeta__IDPro__4316F928" FromRole="OrderDetail" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="OrderPro">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDCus" Type="Int32" />
+    <Property Name="DateOrder" Type="DateTime" Precision="0" />
+    <Property Name="AddressDeliverry" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trigia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Dagiao" Type="Boolean" />
+    <Property Name="Ngaygiaohang" Type="DateTime" Precision="0" />
+    <Property Name="Tennguoinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Diachinhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dienthoainhan" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="HTThanhtoan" Type="Boolean" />
+    <Property Name="HTGiaohang" Type="Boolean" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_OrderPro_Customer" FromRole="OrderPro" ToRole="Customer" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__IDOrd__440B1D61" FromRole="OrderPro" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="IDSP" />
+    </Key>
+    <Property Name="IDSP" Type="Int32" Nullable="false" />
+    <Property Name="TenIP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Donvitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dongiabd" Type="Int32" />
+    <Property Name="HinhSP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="star" Type="Int32" />
+    <Property Name="Cauhinh" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+    <Property Name="Dongia" Type="Int32" />
+    <Property Name="Hinhminhhoa1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hinhminhhoa2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hinhminhhoa3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hinhminhhoa4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Screen" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="HDH" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CameraAfter" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="CameraBefore" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Chip" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Ram" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Rom" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Sim" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Pin" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="sale" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Feedback" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Imgdescription" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Soluongban" Type="Int32" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Category1" Relationship="Self.PK_Products_Category" FromRole="Products" ToRole="Category" />
+    <NavigationProperty Name="OrderDetail" Relationship="Self.FK__OrderDeta__IDPro__4316F928" FromRole="Products" ToRole="OrderDetail" />
+  </EntityType>
+  <Association Name="PK_Products_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="IDCate" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderPro_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="IDCus" />
+      </Principal>
+      <Dependent Role="OrderPro">
+        <PropertyRef Name="IDCus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__IDOrd__440B1D61">
+    <End Role="OrderPro" Type="Self.OrderPro" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPro">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__IDPro__4316F928">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IDSP" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TikiShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminUser" EntityType="Self.AdminUser" />
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" />
+    <EntitySet Name="OrderPro" EntityType="Self.OrderPro" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <AssociationSet Name="PK_Products_Category" Association="Self.PK_Products_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderPro_Customer" Association="Self.FK_OrderPro_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="OrderPro" EntitySet="OrderPro" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__IDOrd__440B1D61" Association="Self.FK__OrderDeta__IDOrd__440B1D61">
+      <End Role="OrderPro" EntitySet="OrderPro" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__IDPro__4316F928" Association="Self.FK__OrderDeta__IDPro__4316F928">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
